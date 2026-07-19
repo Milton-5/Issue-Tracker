@@ -11,33 +11,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- tailwind and daisyui -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <link rel="stylesheet" href="style/style.css">
+   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+   
 </head>
 <body>
-    <section class="login-section px-8 py-12">
+    <section class="login-section mx-[245px] my-[60px]">
         <div class="flex justify-center items-center">
-            <div class="login-container border border-gray-300 rounded-lg p-8 shadow-md w-full max-w-md">
-            <h1 class="login-title flex justify-center text-2xl font-bold">GitHub Issues Tracker</h1>
-            <h1 class="login-title flex justify-center ">Sign In to manage your issues</h1>
-            <form action="login.php" method="POST" class="login-form">
-                <div class="form-group flex flex-col mb-4 rounded-lg">
+            <div class="login-container border border-gray-300 rounded-xl p-[32px] shadow-md w-full max-w-md">
+                <div>
+                    <img src="assets/github-logo.png" alt="" class="login-logo mx-auto mb-[24px]">
+                    <h1 class="login-title flex justify-center text-3xl font-bold">GitHub Issues Tracker</h1>
+                    <h1 class="login-title flex justify-center ">Sign In to manage your issues</h1>
+                </div>
+            <div class="login-form mt-[24px]">
+                <div class="form-group flex flex-col">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required>
+                    <input type="text" id="username" name="username" placeholder="Enter Username"
+                    class="w-full h-12 px-4 rounded-md border border-gray-300"
+                     required>
+                    <label for="username" class="text-violet-800 pb-[8px]">Default: admin</label>
                 </div>
-                <div class="form-group flex flex-col mb-4">
+                <div class="form-group flex flex-col">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password" placeholder="Enter Password" class="w-full h-12 px-4 rounded-md border border-gray-300"
+                     required>
+                    <label for="password" class="text-violet-800">Default: admin123</label>
                 </div>
-                <div class="form-group flex flex-col justify-center">
-                    <button type="submit" class="login-button w-full border border-blue-500 hover:bg-blue-600">Sign In</button>
-                    <h1 class="login-title flex justify-center mt-4">Or</h1>
+                
+                <div class="form-group flex flex-col justify-center pt-[24px] pb-[24px] w-full h-16 rounded-md">
+                    <button type="submit" class="btn btn-primary w-full text-white">Sign In</button>
                 </div>
-            </form>
+            </div>
+
         </div>
     </section>
+    <script src="script/login.js"></script>
 
         
 </body>
