@@ -18,18 +18,43 @@
 </head>
 <body>
     <header>
-        <nav>
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <a href="index.html">Issue Tracker</a>
+        <div class="nav-container flex justify-between items-center bg-gray-100 pt-[16px] pb-[16px] pl-20 pr-20">
+                <div class="nav-logo flex gap-2">
+                    <img src="assets/github-logo.png" alt="GitHub Logo" class="nav-logo-img w-8 h-8 ">
+                    <h2 class="nav-logo-h2 font-semibold text-2xl">GitHub Issues Tracker</h2>
                 </div>
-                <ul class="nav-links flex justify-center gap-4">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="issues.html">Issues</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
+                <div class="nav-search flex gap-2 items-center">
+                    <div class="relative">
+                         <img
+                            src="assets/search_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png"
+                            alt=""
+                            class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 opacity-60">
+
+                          <input
+                             type="text"
+                             placeholder="Search issues..."
+                             class="w-[230px] h-10 pl-10 pr-4 border border-gray-300 rounded-md bg-white text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200">
+
+                    </div>
+                        <button class="search-btn btn btn-primary text-white  px-5 py-2 rounded-md">
+                           + New Issue
+                        </button>
+                    </div>
+                </div>
         </nav>
     </header>
+
+    <section class="card-section pt-10 justify-center h-screen">
+        <div class="card bg-base-100 w-96 shadow-sm">
+            <div class="card-body">
+                 <h2 class="card-title">Card title!</h2>
+                 <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                 <div class="card-actions justify-end">
+                       <button class="btn btn-primary">Buy Now</button>
+                 </div>
+            </div>
+        </div>
+    </section>
     
 </body>
 </html>
