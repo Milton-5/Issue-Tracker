@@ -44,11 +44,18 @@
         </nav>
     </header>
 
-    <section class="card-section pt-10 justify-center h-screen">
-        <div class="card bg-base-100 w-96 shadow-sm">
+
+    <section class="card-section pt-10 justify-center h-screen bg-red-100 px-[245px] py-[60px]">
+        <div class="filter-btns gap-4 mb-4 bg-gray-100 p-4 rounded-md">
+            <button class="btn btn-primary text-white  rounded-md ">ALL</button>
+            <button class="btn btn-primary text-white  rounded-md ">Open</button>
+            <button class="btn btn-primary text-white  rounded-md ">Close</button>
+        </div>
+        <div class="card bg-base-100 w-96 shadow-sm ">
             <div class="card-body">
-                 <h2 class="card-title">Card title!</h2>
-                 <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                <div class="badge flex justify-left badge-soft badge-primary">Primary</div>
+                 <h2 class="card-title">Fix navigation menu on mobile devices</h2>
+                 <p>The navigation menu doesn't collapse properly on mobile devices...</p>
                  <div class="card-actions justify-end">
                        <button class="btn btn-primary">Buy Now</button>
                  </div>
