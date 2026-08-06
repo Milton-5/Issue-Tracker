@@ -4,112 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Issue Tracker</title>
-    <!-- font-awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- google font integration -->
-    
-    
-    
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <link rel="stylesheet" href="style/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- DaisyUI & Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header>
-        <div class="nav-container flex justify-between items-center bg-gray-100 pt-[16px] pb-[16px] pl-20 pr-20">
-                <div class="nav-logo flex gap-2">
-                    <img src="assets/github-logo.png" alt="GitHub Logo" class="nav-logo-img w-8 h-8 ">
-                    <h2 class="nav-logo-h2 font-semibold text-2xl">GitHub Issues Tracker</h2>
-                </div>
-                <div class="nav-search flex gap-2 items-center">
-                    <div class="relative">
-                         <img
-                            src="assets/search_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png"
-                            alt=""
-                            class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 opacity-60">
+<body class="bg-gray-50 font-sans min-h-screen">
 
-                          <input
-                             type="text"
-                             placeholder="Search issues..."
-                             class="w-[230px] h-10 pl-10 pr-4 border border-gray-300 rounded-md bg-white text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200">
-
-                    </div>
-                        <button class="search-btn btn btn-primary text-white  px-5 py-2 rounded-md">
-                           + New Issue
-                        </button>
-                    </div>
+    <!-- Header Section -->
+    <header class="bg-white border-b border-gray-200">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <div class="nav-logo flex items-center gap-3">
+                <i class="fa-brands fa-github text-3xl"></i>
+                <h2 class="font-bold text-xl text-gray-800">GitHub Issues Tracker</h2>
+            </div>
+            
+            <div class="nav-search flex items-center gap-3">
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                    <input type="text" placeholder="Search issues..." class="w-64 h-9 pl-9 pr-4 border border-gray-300 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                 </div>
+                <button class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-4 py-2 rounded-md flex items-center gap-2 shadow-sm transition-colors">
+                    <i class="fa-solid fa-plus text-xs"></i> New Issue
+                </button>
+            </div>
         </nav>
     </header>
 
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
 
- <section class="card-section pt-10 justify-center h-screen bg-red-100 px-[245px] py-[60px]">
-        <div class="filter-btns gap-4 mb-4 bg-gray-100 p-4 rounded-md">
-            <button class="btn btn-primary text-white  rounded-md ">ALL</button>
-            <button class="btn btn-primary text-white  rounded-md ">Open</button>
-            <button class="btn btn-primary text-white  rounded-md ">Close</button>
-        </div>
-        <div class="card w-96 bg-white shadow-lg border border-gray-200 overflow-hidden">
+        <section class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-center gap-2">
+            <button class="btn btn-sm bg-indigo-600 hover:bg-indigo-700 text-white border-none normal-case px-5">All</button>
+            <button class="btn btn-sm btn-ghost hover:bg-gray-100 text-gray-600 border border-gray-200 normal-case px-5">Open</button>
+            <button class="btn btn-sm btn-ghost hover:bg-gray-100 text-gray-600 border border-gray-200 normal-case px-5">Closed</button>
+        </section>
 
-    
-    <div class="h-1 bg-emerald-500"></div>
-
-    <div class="card-body">
-
-        <!-- Header -->
-        <div class="flex justify-between items-start">
-
-            <!-- Icon -->
-            <div id = "issue-icon" class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center">
-                <img src="assets/Open-Status.png" alt="" class="w-6 h-6">
+        <section class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
+                    <img src="assets/Aperture.png" alt="" class="fa-solid fa-circle-dot text-lg"></img>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-gray-800">50 Issues</h1>
+                    <p class="text-sm text-gray-500">Track and manage your project issues</p>
+                </div>
             </div>
-
-            <!-- Priority -->
-            <div id = "issue-priority" class="badge badge-lg bg-red-100 text-red-500 border-0 rounded-full px-10 py-5">
-                HIGH
+            
+            <div class="flex items-center gap-4 text-xs font-medium">
+                <span class="flex items-center gap-1.5 text-gray-600">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Open
+                </span>
+                <span class="flex items-center gap-1.5 text-gray-600">
+                    <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span> Closed
+                </span>
             </div>
+        </section>
 
-        </div>
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
-     
-        <h2 id = "issue-title" class="card-title text-3xl font-bold leading-tight mt-5">
-            Fix Navigation Menu On Mobile Devices
-        </h2>
+            <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
+                <div class="h-1 bg-emerald-500"></div>
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-xs">
+                                <img src="assets/Open-Status.png" alt="" class="fa-regular fa-circle-dot"></img>
+                            </div>
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-red-100 text-red-500 uppercase tracking-wide">High</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 text-sm leading-snug mb-2">Fix Navigation Menu On Mobile Devices</h3>
+                        <p class="text-xs text-gray-500 line-clamp-2 mb-4">The navigation menu doesn't collapse properly on mobile devices...</p>
+                    </div>
 
-     
-        <p id = "issue-description" class="text-gray-500 text-xl mt-3 leading-relaxed">
-            The navigation menu doesn't collapse properly on mobile devices...
-        </p>
+                    <div class="flex flex-wrap gap-1.5 mb-4">
+                       <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-red-50 text-red-500 border border-red-200">
+      
+                           <img src="assets/Screenshot 2026-08-03 130035.png" alt="Bug" class="w-3 h-3 object-contain">
+                            BUG
+                       </span>
+                       <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-50 text-amber-600 border border-amber-200">
+                           <img src="assets/Screenshot 2026-08-03 130048.png" alt="Help" class="w-3 h-3 object-contain">
+                            HELP WANTED
+                        </span>
+                    </div>
+                </div>
 
-        
-        <div class="flex gap-3 mt-6">
-
-            <div id = "issue-type" class="badge badge-outline badge-error rounded-full px-5 py-4">
-                 <img src="assets/Screenshot 2026-08-03 130035.png" alt="" class="w-6 h-6"> BUG
+                <div class="border-t border-gray-100 px-4 py-2.5 bg-gray-50/50 text-[11px] text-gray-400 flex justify-between items-center">
+                    <span>#1 by john_doe</span>
+                    <span>1/15/2024</span>
+                </div>
             </div>
+        </section>
+    </main>
 
-            <div id = "issue-label" class="badge badge-outline badge-warning rounded-full px-5 py-4">
-                <img src="assets/Screenshot 2026-08-03 130048.png" alt="" class="w-6 h-6"> HELP WANTED
-            </div>
-
-        </div>
-
-    </div>
-
-    <div id = "issue-meta" class="border-t border-gray-200 px-8 py-6">
-
-        <p id = "issue-author" class="text-gray-500 text-lg">
-            #1 &nbsp; by john_doe
-        </p>
-        <p id = "issue-date" class="text-gray-500 text-lg mt-2">
-            1/15/2024
-        </p>
-
-    </div>
-
- </div>
-</section>
-       
 </body>
 </html>
