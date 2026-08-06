@@ -7,10 +7,9 @@
     <!-- font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- google font integration -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!-- tailwind and daisyui -->
+    
+    
+    
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
@@ -45,23 +44,72 @@
     </header>
 
 
-    <section class="card-section pt-10 justify-center h-screen bg-red-100 px-[245px] py-[60px]">
+ <section class="card-section pt-10 justify-center h-screen bg-red-100 px-[245px] py-[60px]">
         <div class="filter-btns gap-4 mb-4 bg-gray-100 p-4 rounded-md">
             <button class="btn btn-primary text-white  rounded-md ">ALL</button>
             <button class="btn btn-primary text-white  rounded-md ">Open</button>
             <button class="btn btn-primary text-white  rounded-md ">Close</button>
         </div>
-        <div class="card bg-base-100 w-96 shadow-sm ">
-            <div class="card-body">
-                <div class="badge flex justify-left badge-soft badge-primary">Primary</div>
-                 <h2 class="card-title">Fix navigation menu on mobile devices</h2>
-                 <p>The navigation menu doesn't collapse properly on mobile devices...</p>
-                 <div class="card-actions justify-end">
-                       <button class="btn btn-primary">Buy Now</button>
-                 </div>
-            </div>
-        </div>
-    </section>
+        <div class="card w-96 bg-white shadow-lg border border-gray-200 overflow-hidden">
+
     
+    <div class="h-1 bg-emerald-500"></div>
+
+    <div class="card-body">
+
+        <!-- Header -->
+        <div class="flex justify-between items-start">
+
+            <!-- Icon -->
+            <div id = "issue-icon" class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center">
+                <img src="assets/Open-Status.png" alt="" class="w-6 h-6">
+            </div>
+
+            <!-- Priority -->
+            <div id = "issue-priority" class="badge badge-lg bg-red-100 text-red-500 border-0 rounded-full px-10 py-5">
+                HIGH
+            </div>
+
+        </div>
+
+     
+        <h2 id = "issue-title" class="card-title text-3xl font-bold leading-tight mt-5">
+            Fix Navigation Menu On Mobile Devices
+        </h2>
+
+     
+        <p id = "issue-description" class="text-gray-500 text-xl mt-3 leading-relaxed">
+            The navigation menu doesn't collapse properly on mobile devices...
+        </p>
+
+        
+        <div class="flex gap-3 mt-6">
+
+            <div id = "issue-type" class="badge badge-outline badge-error rounded-full px-5 py-4">
+                 <img src="assets/Screenshot 2026-08-03 130035.png" alt="" class="w-6 h-6"> BUG
+            </div>
+
+            <div id = "issue-label" class="badge badge-outline badge-warning rounded-full px-5 py-4">
+                <img src="assets/Screenshot 2026-08-03 130048.png" alt="" class="w-6 h-6"> HELP WANTED
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id = "issue-meta" class="border-t border-gray-200 px-8 py-6">
+
+        <p id = "issue-author" class="text-gray-500 text-lg">
+            #1 &nbsp; by john_doe
+        </p>
+        <p id = "issue-date" class="text-gray-500 text-lg mt-2">
+            1/15/2024
+        </p>
+
+    </div>
+
+ </div>
+</section>
+       
 </body>
 </html>
