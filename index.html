@@ -36,11 +36,11 @@
 
         <section class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-center gap-2">
             <button onclick="loadData()" class="btn btn-sm  bg-indigo-600 hover:bg-indigo-700 text-white border-none normal-case px-5">All</button>
-            <button class="btn btn-sm btn-ghost hover:bg-gray-100 text-gray-600 border border-gray-200 normal-case px-5">Open</button>
-            <button class="btn btn-sm btn-ghost hover:bg-gray-100 text-gray-600 border border-gray-200 normal-case px-5">Closed</button>
+            <button onclick="loadData()" class="btn btn-sm btn-ghost hover:bg-gray-100 text-gray-600 border border-gray-200 normal-case px-5">Open</button>
+            <button  class="btn btn-sm btn-ghost hover:bg-gray-100 text-gray-600 border border-gray-200 normal-case px-5">Closed</button>
         </section>
 
-        <section class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex justify-between items-center">
+        <section id="issue-stats" class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
                     <img src="assets/Aperture.png" alt="" class="fa-solid fa-circle-dot text-lg"></img>
