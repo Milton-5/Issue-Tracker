@@ -1,10 +1,40 @@
 const loadData = () => {
    fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues") 
    .then( (res) => res.json()) // promise of json data
-   .then((json) => displayData(json.data)); // log the json data
+   .then((json) => {
+            const issues = json.data;
+            displayIssues(issues);
+            displayData(issues);
+
+        });
 }
+const displayIssues = (datas) => {
+
+    const issueContain = document.getElementById("issue-stats");
+    issueContain.innerHTML = "";
+    issueContain.innerHTML = `
+    <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
+                    <img src="assets/Aperture.png" alt="" class="fa-solid fa-circle-dot text-lg"> 
+                </div>
+                <div>
+                    <h1 class="total-issues text-xl font-bold text-gray-800">${datas.length} Issues</h1>
+                    <p class="text-sm text-gray-500">Track and manage your project issues</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-4 text-xs font-medium">
+                <span class="flex items-center gap-1.5 text-gray-600">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Open
+                </span>
+                <span class="flex items-center gap-1.5 text-gray-600">
+                    <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span> Closed
+                </span>
+            </div>`};
+
 
 const displayData = (issues) => {
+
 
     const issueContainer = document.getElementById("issue-container");
 
