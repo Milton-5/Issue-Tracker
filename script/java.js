@@ -1,13 +1,28 @@
-const loadData = () => {
+const loadData = (status) => {
    fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues") 
    .then( (res) => res.json()) // promise of json data
    .then((json) => {
             const issues = json.data;
-            displayIssues(issues);
-            displayData(issues);
+            let filteredIssues = issues;
+
+      if (status === "open") {
+        filteredIssues = issues.filter(
+          (issue) => issue.status === "open"
+        );
+      }
+
+      if (status === "closed") {
+        filteredIssues = issues.filter(
+          (issue) => issue.status === "closed"
+        );
+      }
+      
+            displayIssues(filteredIssues);
+            displayData(filteredIssues);
 
         });
 }
+
 const displayIssues = (datas) => {
 
     const issueContain = document.getElementById("issue-stats");
@@ -98,4 +113,4 @@ const displayData = (issues) => {
         issueContainer.append(card);
     });
 };
-loadData();
+loadData("all");
