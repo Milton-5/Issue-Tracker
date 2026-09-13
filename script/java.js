@@ -46,6 +46,18 @@ const displayData = (issues) => {
     const issueContainer = document.getElementById("issue-container");
     issueContainer.innerHTML = "";
 
+    // যদি কোনো ইস্যু না থাকে
+    if (!issues || issues.length === 0) {
+        issueContainer.innerHTML = `
+            <div class="col-span-full flex flex-col items-center justify-center py-16 text-gray-500">
+                <i class="fa-solid fa-triangle-exclamation text-4xl mb-3 text-amber-500"></i>
+                <p class="text-base font-semibold text-gray-700">No issues found!</p>
+                <p class="text-xs text-gray-400 mt-1">Try searching with a different keyword.</p>
+            </div>
+        `;
+        return;
+    }
+
     issues.forEach((issue) => {
         const card = document.createElement("div");
 
@@ -84,7 +96,7 @@ const displayData = (issues) => {
                 </div>
 
                 <div class="flex flex-wrap gap-1.5 mb-4">
-                    ${issue.labels.map((label, index) => `
+                    ${(issue.labels || []).map((label, index) => `
                         <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold ${index === 0 ? "bg-red-50 text-red-500 border border-red-200" : "bg-amber-50 text-amber-600 border border-amber-200"}">
                             <img src="${index === 0 ? "assets/Screenshot 2026-08-03 130035.png" : "assets/Screenshot 2026-08-03 130048.png"}" alt="${label}" class="w-3 h-3 object-contain">
                             ${label}
@@ -103,6 +115,56 @@ const displayData = (issues) => {
         issueContainer.append(card);
     });
 };
+
+// Search Functionality
+const handleSearch = () => {
+    // HTML-এ id="search-input" না থাকলেও fallback হিসেবে ইনপুট খুঁজে নেবে
+    const searchInput = document.getElementById("search-input") || document.querySelector(".nav-search input");
+    const searchText = searchInput ? searchInput.value.trim() : "";
+
+    // ইনপুট খালি হলে সমস্ত ডাটা রিলোড হবে
+    if (!searchText) {
+        loadData("all");
+        return;
+    }
+
+    const issueContainer = document.getElementById("issue-container");
+    issueContainer.innerHTML = `
+        <div class="col-span-full flex justify-center items-center py-16">
+            <span class="loading loading-spinner loading-lg text-indigo-600"></span>
+        </div>
+    `;
+
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${encodeURIComponent(searchText)}`)
+        .then((res) => res.json())
+        .then((json) => {
+            const issues = json.data || [];
+            displayIssues(issues);
+            displayData(issues);
+        })
+        .catch((err) => {
+            console.error("Search API Error:", err);
+            issueContainer.innerHTML = `<p class="col-span-full text-center text-red-500 py-10">Search failed! Please try again.</p>`;
+        });
+};
+
+// Enter এবং Button Click ইভেন্ট লিসেনার
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("search-input") || document.querySelector(".nav-search input");
+    const searchBtn = document.querySelector(".nav-search button");
+
+    if (searchInput) {
+        searchInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                handleSearch();
+            }
+        });
+    }
+
+    if (searchBtn) {
+        searchBtn.addEventListener("click", handleSearch);
+    }
+});
 
 // Single Issue Fetch & Modal Show Function
 const loadIssueDetail = (id) => {
