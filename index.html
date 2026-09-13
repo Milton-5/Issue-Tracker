@@ -11,7 +11,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 font-sans min-h-screen">
-
+   <dialog id="issue_modal" class="modal">
+        <div class="modal-box max-w-xl p-6 relative bg-white text-gray-800 rounded-2xl">
+            <form method="dialog">
+                <button class="btn btn-sm btn-circle btn-ghost absolute right-4 top-4 text-gray-400 hover:text-gray-700">✕</button>
+            </form>
+            <div id="modal-content"></div>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
     <!-- Header Section -->
     <header class="bg-white border-b border-gray-200">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
